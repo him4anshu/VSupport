@@ -1,0 +1,18 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" [routerLink]="['']">
+        <img src="assets/images/logo.png" class="img-responsive" style="width:100%" alt="Image">
+        </a>
+      </div>
+      
+      <div *ngIf="_authService.isUserLoggedIn()" class="nav navbar-nav navbar-right" style="display: inline">
+          <a [routerLink]="['register']" style="margin-right:10px"><span class="fa fa-user-circle"></span> {{loggedInUserName}}</a>
+          <a [routerLink]="['logout']"><span class="fa fa-sign-out"></span> Logout</a> 
+      </div>
+      <div *ngIf="!_authService.isUserLoggedIn()" class="nav navbar-nav navbar-right" style="display: inline">
+          <a [routerLink]="['register']" style="margin-right:10px"><span class="fa fa-user"></span> Sign Up</a>
+          <a [routerLink]="['login']"><span class="fa fa-sign-in"></span> Login</a>
+      </div>
+    </div>
+  </nav>

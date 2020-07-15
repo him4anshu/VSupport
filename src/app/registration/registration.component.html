@@ -1,0 +1,32 @@
+<div class="container" style="width: 400px">
+    <div class="card">
+        <div class="card-body">
+          <div class="card-title">{{registerComponentHeading}}</div>
+          <hr>
+     <form #regform="ngForm" (ngSubmit)="register()">
+      <div class="form-group">
+          <label for="email">User Name:</label>
+          <input type="email" class="form-control" id="userName" placeholder="Enter Username" name="username" [(ngModel)]="user.userName"
+          required #em="ngModel" [class.is-invalid]="em.invalid && em.touched">
+          <small class="text-danger" [class.d-none]="em.valid || em.untouched" >Username is required</small>
+
+
+        </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" [(ngModel)]="user.emailId">
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" [(ngModel)]="user.password">
+      </div>
+      <div class="form-group">
+          <label for="pwd">Confirm Password:</label>
+          <input type="password" class="form-control" id="cnfpwd" placeholder="Enter password again" name="cnfpwd" [(ngModel)]="user.confirmPassword">
+        </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="regform.form.invalid">Register</button>
+    </form>
+  </div>
+  </div>
+  </div>
